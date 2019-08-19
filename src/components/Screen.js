@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import UserInput from './UserInput';
+import PreviousCalculations from './PreviousCalculations';
 
 const Display = styled.div `
     width: 400px;
@@ -19,6 +20,8 @@ const Display = styled.div `
 
 const Screen = () => (
     <Display>
+        <UserInput />
+        <PreviousCalculations />
     </Display>
 );
 

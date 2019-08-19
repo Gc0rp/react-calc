@@ -8,7 +8,6 @@ const reset = css`
     }
 
     * {
-        user-select: none;
         box-sizing: border-box;
         padding: 0px;
         margin: 0px;

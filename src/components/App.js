@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import Screen from '../components/Screen'
+import Screen from './Screen';
+import ButtonPad from './ButtonPad';
 
 const Container = styled.div `
-    border: 1px solid black;
     width: 400px;
     min-height: 550px;
     border-radius: 5px;
@@ -11,12 +11,10 @@ const Container = styled.div `
     box-shadow: 5px 5px 8px #888888;
 `;
 
-
 const App = () => (
     <Container>
-        <Screen>
-            
-        </Screen>
+        <Screen />
+        <ButtonPad />
     </Container>
 );
 
