@@ -1,12 +1,8 @@
 import React from 'react';
-
-const buttonStyles = {
-    minWidth: "100px",
-    backgroundColor: "#E8E8E8"
-};
+import ButtonStyle from '../constants/css/ButtonStyle';
 
 const OperationButton = (props) => (
-    <button type="button" style={buttonStyles}>{props.operationType}</button> 
+    <button className="btn" id={props.id} type="button" style={ButtonStyle}>{props.operationType}</button> 
 );
 
 export default OperationButton;

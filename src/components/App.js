@@ -5,7 +5,7 @@ import ButtonPad from './ButtonPad';
 
 const Container = styled.div `
     width: 400px;
-    min-height: 550px;
+    min-height: 540px;
     border-radius: 5px;
     margin: 30px auto auto auto;
     box-shadow: 5px 5px 8px #888888;

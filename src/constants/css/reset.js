@@ -17,6 +17,11 @@ const reset = css`
         text-align: center;
     }
 
+    .btn{
+        
+        border-radius: 0px;
+    }
+
    
 `;
 
