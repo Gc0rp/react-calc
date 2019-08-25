@@ -12,16 +12,23 @@ class NumberButton extends React.Component{
     }
 
     buttonClicked(){
-        this.props.pushNumber(this.props.number);
+        if(this.props.screenNumber.length < 11) {
+            this.props.pushNumber(this.props.number);
+        }
+        
     };
 
     render() {
         return (
-            <button className="btn" type="button" style={{...ButtonStyle, backgroundColor: "white"}} 
+            <button className="btn" type="button" style={this.props.style} 
                 onClick={this.buttonClicked}>{this.props.number}</button> 
         );
     }
 }
+
+NumberButton.defaultProps = {
+    style: {...ButtonStyle}
+};
 
 const mapStateToProps = (state) => {
     return {

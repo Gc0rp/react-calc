@@ -1,8 +1,13 @@
 import React from 'react';
 import OperationButton from './OperationButton';
 import NumberButton from './NumberButton';
-import ZeroButton from './ZeroButton';
 import EqualButton from './EqualButton';
+
+import ButtonStyle from '../constants/css/ButtonStyle';
+
+const style = {
+    ...ButtonStyle
+};
 
 const ButtonPad = () => (
     <div>
@@ -11,7 +16,7 @@ const ButtonPad = () => (
         <OperationButton operationType="%" />
         <OperationButton operationType="÷" />
         
-        <NumberButton number="7" />
+        <NumberButton number="7"/>
         <NumberButton number="8" />
         <NumberButton number="9" />
         <OperationButton operationType="x" />
@@ -26,9 +31,9 @@ const ButtonPad = () => (
         <NumberButton number="3" />
         <OperationButton operationType="-" />
 
-        <ZeroButton/>
+        <NumberButton number="0" style={{...ButtonStyle, backgroundColor: "white",  minWidth: "200px"}}/>
         <NumberButton number="." />
-        <EqualButton />
+        <OperationButton operationType="=" style={{...ButtonStyle,  background: "linear-gradient(93deg, rgba(238,9,121,1) 0%, rgba(255,106,0,1) 96%, rgba(255,106,0,1) 100%)"}}/>
        
     </div>
 );
