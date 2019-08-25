@@ -5,35 +5,32 @@ import EqualButton from './EqualButton';
 
 import ButtonStyle from '../constants/css/ButtonStyle';
 
-const style = {
-    ...ButtonStyle
-};
-
 const ButtonPad = () => (
     <div>
         <OperationButton id="clear" operationType="AC" />
         <OperationButton operationType="+/-" />
-        <OperationButton operationType="%" />
-        <OperationButton operationType="÷" />
+        <OperationButton id="percentage" operationType="%" />
+        <OperationButton id="divide" operationType="÷" />
         
-        <NumberButton number="7"/>
-        <NumberButton number="8" />
-        <NumberButton number="9" />
-        <OperationButton operationType="x" />
+        <NumberButton id="seven" number="7"/>
+        <NumberButton id="eight" number="8" />
+        <NumberButton id="nine" number="9" />
+        <OperationButton id="multiply" operationType="x" />
 
-        <NumberButton number="4" />
-        <NumberButton number="5" />
-        <NumberButton number="6" />
-        <OperationButton operationType="+" />
+        <NumberButton id="four" number="4" />
+        <NumberButton id="five" number="5" />
+        <NumberButton id="six" number="6" />
+        <OperationButton id="add" operationType="+" />
         
-        <NumberButton number="1" />
-        <NumberButton number="2" />
-        <NumberButton number="3" />
-        <OperationButton operationType="-" />
+        <NumberButton id="one" number="1" />
+        <NumberButton id="two" number="2" />
+        <NumberButton id="three" number="3" />
+        <OperationButton id="subtract" operationType="-" />
 
-        <NumberButton number="0" style={{...ButtonStyle, backgroundColor: "white",  minWidth: "200px"}}/>
-        <NumberButton number="." />
-        <OperationButton operationType="=" style={{...ButtonStyle,  background: "linear-gradient(93deg, rgba(238,9,121,1) 0%, rgba(255,106,0,1) 96%, rgba(255,106,0,1) 100%)"}}/>
+        <NumberButton id="zero" number="0" style={{...ButtonStyle, backgroundColor: "white",  minWidth: "200px"}}/>
+        <NumberButton id="decimal" number="." />
+        <OperationButton id="equals" operationType="=" 
+            style={{...ButtonStyle,  background: "linear-gradient(93deg, rgba(238,9,121,1) 0%, rgba(255,106,0,1) 96%, rgba(255,106,0,1) 100%)"}}/>
        
     </div>
 );
