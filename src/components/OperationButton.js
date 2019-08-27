@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import ButtonStyle from '../constants/css/ButtonStyle';
 import ADD_OPERATION from '../actions/addOperation';
 import CLEAR_SCREEN from '../actions/clearScreen';
+import CALCULATE_SOLUTION from '../actions/calculateSolution';
 
 class OperationButton extends React.Component {
    
@@ -13,10 +14,21 @@ class OperationButton extends React.Component {
     }
 
     operation(){
-        if(this.props.operationType !== 'AC') {
-            this.props.pushOperator(this.props.operationType);
-        } else {
+        if(this.props.operationType === 'AC') {
             this.props.clearScreen();
+            
+        } else if(this.props.operationType === '='){
+            
+            this.props.calculateSolution(this.props.screenNumber);
+
+        } else if (this.props.operationType === '÷'){
+            
+            this.props.pushOperator('/');
+        } else if (this.props.operationType === 'x'){
+            
+            this.props.pushOperator('*');
+        }else {
+            this.props.pushOperator(this.props.operationType);
         }
     }
 
@@ -44,6 +56,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         clearScreen: () => {
             dispatch(CLEAR_SCREEN());
+        },
+        calculateSolution: (equation) => {
+            dispatch(CALCULATE_SOLUTION(equation));
         }
     };
 };

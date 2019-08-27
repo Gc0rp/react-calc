@@ -11,6 +11,10 @@ const screenReducer = (state = defaultState, action) => {
         if(state.number[0] === '0') {
             state.number = '';
         }
+
+        if(Number.isInteger(Number(state.number[state.number.length - 1])) === false && action.number === '.') {
+            action.number = '';
+        }
         return {...state, number: state.number + action.number};
 
     case 'ADD_OPERATION':
@@ -20,7 +24,11 @@ const screenReducer = (state = defaultState, action) => {
         return {...state, number: state.number};
 
     case 'CLEAR_SCREEN':
-        state.number = '';
+        state.number = '0';
+        return {...state};
+
+    case 'CALCULATE_SOLUTION':
+        state.number = String(eval(state.number));
         return {...state};
 
     default:

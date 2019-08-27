@@ -20,7 +20,7 @@ class NumberButton extends React.Component{
 
     render() {
         return (
-            <button className="btn" type="button" style={this.props.style} 
+            <button id={this.props.id} className="btn" type="button" style={this.props.style} 
                 onClick={this.buttonClicked}>{this.props.number}</button> 
         );
     }

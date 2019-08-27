@@ -14,7 +14,7 @@ const Display = styled.div `
 
 const Screen = () => (
     <Display>
-        <UserInput />
+        <UserInput/>
         <PreviousCalculations />
     </Display>
 );

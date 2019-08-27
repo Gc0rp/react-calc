@@ -7,7 +7,7 @@ const userInputStyle = {
 };
 
 const UserInput = (props) => (
-    <div style={userInputStyle}>
+    <div id="display" style={userInputStyle}>
         <h1 style={{fontFamily: 'sans-serif', fontWeight: '400', fontSize: '50px', color: "white"}}>{props.screenNumber}</h1>
     </div>
 ); 
