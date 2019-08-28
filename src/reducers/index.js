@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
 
 const defaultState = {
-    number: '0'
+    number: '0',
+    calculations: 'test'
 };
 
 const screenReducer = (state = defaultState, action) => {
@@ -14,14 +15,21 @@ const screenReducer = (state = defaultState, action) => {
 
         if(Number.isInteger(Number(state.number[state.number.length - 1])) === false && action.number === '.') {
             action.number = '';
+        } else if(action.number === '.') {
+            const split = String(state.number).split(/[-,+,/,*,%]+/);
+            
+            if (split[split.length - 1].includes('.')){
+                action.number = '';
+            }
         }
         return {...state, number: state.number + action.number};
 
     case 'ADD_OPERATION':
-        if(Number.isInteger(Number(state.number[state.number.length - 1]))) {
+        if(Number.isInteger(Number(state.number[state.number.length - 1])) || (action.operator === '-' && 
+        state.number[state.number.length - 1] !== '-')) {
             state.number += action.operator;
         }
-        return {...state, number: state.number};
+        return {...state, number: state.number };
 
     case 'CLEAR_SCREEN':
         state.number = '0';
