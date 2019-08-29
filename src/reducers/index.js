@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 const defaultState = {
     number: '0',
-    calculations: 'test'
+    calculations: '0'
 };
 
 const screenReducer = (state = defaultState, action) => {
@@ -22,17 +22,31 @@ const screenReducer = (state = defaultState, action) => {
                 action.number = '';
             }
         }
-        return {...state, number: state.number + action.number};
+        return {...state, number: state.number + action.number, calculations: state.number + action.number};
 
-    case 'ADD_OPERATION':
-        if(Number.isInteger(Number(state.number[state.number.length - 1])) || (action.operator === '-' && 
-        state.number[state.number.length - 1] !== '-')) {
+    case 'ADD_OPERATION': {
+
+        const lastEntered= state.number[state.number.length - 1];
+        const operators = ['+', '-', '/', '%'];
+
+        if(Number.isInteger(Number(lastEntered)) || (action.operator === '-' && 
+            lastEntered !== '-')) {
+            state.number += action.operator;
+        } else if (String(action.operator).match(/[+,-,/,*,%]/)){
+            let cuttoff;
+            if(String(state.number[state.number.length - 2]).match(/[+,-,/,*,%]/)){
+                cuttoff = state.number.length - 2;
+            } else {
+                cuttoff = state.number.length - 1;
+            }
+            state.number = state.number.split('').splice(0, cuttoff).join('');
             state.number += action.operator;
         }
         return {...state, number: state.number };
-
+    }
     case 'CLEAR_SCREEN':
         state.number = '0';
+        state.calculations = 0;
         return {...state};
 
     case 'CALCULATE_SOLUTION':

@@ -27,9 +27,11 @@ class OperationButton extends React.Component {
         } else if (this.props.operationType === 'x'){
             
             this.props.pushOperator('*');
-        }else {
+        } else if (this.props.operationType === 'DEL') {
+            
+        } else {
             this.props.pushOperator(this.props.operationType);
-        }
+        } 
     }
 
     render(){

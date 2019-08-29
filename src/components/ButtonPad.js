@@ -8,9 +8,9 @@ import ButtonStyle from '../constants/css/ButtonStyle';
 const ButtonPad = () => (
     <div>
         <OperationButton id="clear" operationType="AC" />
-        <OperationButton operationType="+/-" />
         <OperationButton id="percentage" operationType="%" />
         <OperationButton id="divide" operationType="÷" />
+        <OperationButton operationType="DEL" />
         
         <NumberButton id="seven" number="7"/>
         <NumberButton id="eight" number="8" />
