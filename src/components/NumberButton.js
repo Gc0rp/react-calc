@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {ADDNUMBER} from '../actions/addNumber';
+import {BACKSPACE} from '../actions/backSpace';
 import ButtonStyle from '../constants/css/ButtonStyle';
 
 class NumberButton extends React.Component{
@@ -14,8 +15,7 @@ class NumberButton extends React.Component{
     buttonClicked(){
         if(this.props.screenNumber.length < 11) {
             this.props.pushNumber(this.props.number);
-        }
-        
+        }  
     };
 
     render() {

@@ -1,7 +1,9 @@
 const BACK_SPACE = 'BACK_SPACE';
 
-export const BACKSPACE = () => {
+const BACKSPACE = () => {
     return {
         type: BACK_SPACE
     };
 };
+
+export default BACKSPACE;

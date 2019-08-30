@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import ButtonStyle from '../constants/css/ButtonStyle';
 import ADD_OPERATION from '../actions/addOperation';
+import BACKSPACE from '../actions/backSpace';
 import CLEAR_SCREEN from '../actions/clearScreen';
 import CALCULATE_SOLUTION from '../actions/calculateSolution';
 
@@ -28,7 +29,7 @@ class OperationButton extends React.Component {
             
             this.props.pushOperator('*');
         } else if (this.props.operationType === 'DEL') {
-            
+            this.props.deleteLastEntered();
         } else {
             this.props.pushOperator(this.props.operationType);
         } 
@@ -61,6 +62,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         calculateSolution: (equation) => {
             dispatch(CALCULATE_SOLUTION(equation));
+        },
+        deleteLastEntered: () => {
+            dispatch(BACKSPACE());
         }
     };
 };
